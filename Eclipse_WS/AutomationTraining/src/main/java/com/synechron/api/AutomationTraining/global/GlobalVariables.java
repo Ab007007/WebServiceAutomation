@@ -8,6 +8,6 @@ public class GlobalVariables {
 	
 	
 	public static final String git_baseURI = "https://api.github.com";
-	public static final String barrierToken = "Bearer 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";
+	public static final String barrierToken = "Bearer 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";
 	
 }
