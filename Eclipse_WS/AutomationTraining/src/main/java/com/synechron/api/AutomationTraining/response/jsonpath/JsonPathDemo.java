@@ -41,16 +41,21 @@ public class JsonPathDemo {
 	@Test
 	public void getWidthofFirstElement() {
 		JsonPath responseBody = new JsonPath(response.asString());
-		System.out.println("FirstWidth : " + responseBody.get("obj.prefs.backgroundImageScaled[0].width"));
+		System.out.println("FirstWidth : " + responseBody.get("prefs.backgroundImageScaled[0].width"));
 	}
 	
 	@Test
 	public void getAllWidth() {
 		JsonPath responseBody = new JsonPath(response.asString());
-		List<Map<String,?>> ele = responseBody.get("obj.prefs.backgroundImageScaled.size()");
+		int totalElements = responseBody.get("prefs.backgroundImageScaled.size()");
 		
-		System.out.println("Total Element in Collection : " + ele.size());
-		//System.out.println("FirstWidth : " + responseBody.get("obj.prefs.backgroundImageScaled[0].width"));
+		System.out.println("Total Element in Collection : " + totalElements);
+		
+		for (int i = 0; i < totalElements; i++) {
+			
+			System.out.println("Width at index " + i  + " is  : " + responseBody.get("prefs.backgroundImageScaled["+ i +"].width"));
+		}
+		//
 	}
 	
 	
